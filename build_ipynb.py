@@ -49,19 +49,7 @@ An insurance company wants to flag potentially fraudulent claims automatically. 
 # Section 2: Environment Setup & Data Loading
 add_md("""## 2. Environment Setup & Data Acquisition""")
 
-add_code("""# Automatically check and install missing packages in active kernel environment
-import sys
-import subprocess
-
-required_packages = ['pandas', 'numpy', 'matplotlib', 'seaborn', 'scikit-learn', 'imbalanced-learn', 'joblib']
-for pkg in required_packages:
-    try:
-        __import__(pkg.replace('-', '_'))
-    except ImportError:
-        print(f"Installing missing package in current environment: {pkg}...")
-        subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
-
-import pandas as pd
+add_code("""import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -444,4 +432,4 @@ print("Model pipeline successfully saved to 'fraud_detection_pipeline.pkl'.")
 with open('Insurance_Claim_Fraud_Detection.ipynb', 'w') as f:
     nbf.write(nb, f)
 
-print("Successfully updated Insurance_Claim_Fraud_Detection.ipynb with auto-installer")
+print("Successfully restored original imports in build_ipynb.py")
